@@ -1,0 +1,80 @@
+/// Modules Common Ground
+
+.module {
+	display: block;
+	position: relative;
+
+}
+
+.module.is-small {
+	p {
+		@extend %small;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.module.fullscreen {
+	overflow-y: hidden;
+}
+
+.module--p {
+	padding-top: px-to-em(20px);
+
+	@include respond-to('>=desktop'){
+		padding-top: px-to-em(40px);
+	}
+}
+
+.module--p\+ {
+	padding-top: px-to-em(40px);
+
+	@include respond-to('>=desktop'){
+		padding-top: px-to-em(80px);
+	}
+}
+
+
+.module--pb {
+	padding-bottom: px-to-em(20px);
+
+	@include respond-to('>=desktop'){
+		padding-bottom: px-to-em(40px);
+	}
+}
+
+
+.module--pb\+ {
+	padding-bottom: px-to-em(40px);
+
+	@include respond-to('>=desktop'){
+		padding-bottom: px-to-em(80px);
+	}
+}
+
+
+.module--mt\+ {
+	margin-top: px-to-em(40px);
+
+	@include respond-to('>=desktop'){
+		margin-top: px-to-em(80px);
+	}
+}
+
+.text-column-left {
+	@include respond-to('>=desktop'){
+		padding-right: $base-spacing-unit;
+	}
+}
+
+.text-column-right {
+	@include respond-to('>=desktop'){
+		padding-left: $base-spacing-unit;
+	}
+}
+
+.slide-thumbnail {
+	width: 100%;
+}

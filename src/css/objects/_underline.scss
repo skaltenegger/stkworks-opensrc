@@ -1,0 +1,78 @@
+
+$u-color: color('brand') !default;
+$u-size: 2px !default; /// 19px - 1px
+
+
+%underline {
+	text-decoration: none;
+	display: inline-block;
+	position: relative;
+	z-index: z('default');
+	padding-bottom: 0;
+}
+
+	%underline:before,
+	%underline:after {
+		// @include respond-to('>desktop'){
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0.2em;
+			height: $u-size;
+			min-height: 1px;
+			width: 0;
+			background-color: $u-color;
+			z-index: -1;
+		// }
+	}
+
+	%underline:before {
+		left: 0;
+		transition: width 0s ease, background .4s ease;
+
+	}
+	%underline:after{
+		right: 0;
+		transition: width .4s ease;
+
+	}
+
+
+%underline:hover:before,
+.is-underlined:before {
+	width: 100%;
+	transition: width .4s ease;
+}
+
+%underline:hover:after,
+.is-underlined:after {
+	width: 100%;
+	background: transparent;
+	transition: all 0s ease;
+}
+
+
+.touchevents {
+	%underline:hover:before,
+	.is-underlined:before {
+		width: 0;
+	}
+
+	%underline:hover:after,
+	.is-underlined:after {
+		width: 0;
+	}
+}
+
+.is-underlined {
+	@extend %underline;
+}
+
+.is-underlined--bold {
+	@extend %underline;
+
+	&:before, &:after {
+		height: 4px; 
+		width: 100%;
+	}
+}

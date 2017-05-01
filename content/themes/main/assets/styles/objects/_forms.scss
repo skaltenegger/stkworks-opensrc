@@ -1,0 +1,86 @@
+.contact-form{
+	padding-bottom: px-to-em($base-spacing-unit);
+}
+.input-field {
+	position: relative;
+}
+.contact-heading {
+
+	h2 {
+		@extend %big;
+		@extend %f-alt2;
+		text-transform: none;
+	}
+}
+
+%input-base {
+	border: 1px dotted color('text');
+	border-radius: 0;
+	outline: none;
+	background: none;
+	appearance: none;
+	width: 100%;
+	padding-left: px-to-em(65px);
+	box-sizing: border-box;
+	@include respond-to('>=tablet'){
+		padding-left: px-to-em(100px);
+	}
+}
+
+.input {
+	@extend %input-base;
+	line-height: px-to-em(56px);
+	height: px-to-em(56px);
+}
+
+.textarea {
+	@extend %input-base;
+	resize: none;
+	padding-top: px-to-em(12px);
+}
+
+.label {
+	@extend %f-alt;
+	@include font-size(14px);
+	color: color('brand');
+	position: absolute;
+	top: px-to-em(22px, 14px);
+	left: px-to-em(15px, 14px);
+
+	transition: all 0.5s ease-in-out;
+
+	@include respond-to('>=tablet'){
+		left: px-to-em(20px, 14px);
+	}
+}
+
+.feedback {
+	@extend %small;
+	color: color('brand');
+	position: absolute;
+	right: px-to-em(20px, 16px);
+	top: px-to-em(20px, 16px);
+	text-transform: uppercase;
+	opacity: 0;
+	transform: translate(0, -10%);
+	transition: all 0.5s ease-out;
+}
+
+[type='submit'] {
+	margin-top: $base-spacing-unit;
+}
+
+.is-field-valid {
+
+	.feedback {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}
+
+
+.is-error {
+	.label {
+		color: red;
+	}
+}

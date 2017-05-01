@@ -1,0 +1,142 @@
+.projects-overview {
+	position: relative; 
+	//background: rgb(250,250,250); 
+}
+
+
+.full-min-height {
+	
+	// min-height: 60vh;   
+	
+	@include respond-to('>=tablet', '<desktop') {
+		min-height: 70vh;
+		height: 70vh; // for firefox
+	}
+
+	@include respond-to('>=desktop') {
+		min-height: 100vh; 
+		height: 100vh; // for firefox
+	}
+
+	display: table;
+	
+	> .layout {
+		display: table-cell; 
+		vertical-align: middle; 
+	}
+}
+
+.browser-window, .project-info--overview {
+
+	width: 90%;
+	position: relative; 
+
+	@include respond-to('>=tablet') {
+		transform: translateX(20px); 
+		width: 80%; 
+	}
+
+	@include respond-to('>desktop') {
+		width: 60%; 
+	}
+	
+} 
+
+.browser-window--full {
+	width: 100%;
+	@include respond-to('>=tablet') {
+		transform: translateX(0px); 
+		width: 100%; 
+	}
+	@include respond-to('>desktop') {
+		width: 100%; 
+	}
+}
+
+
+.browser-window {
+	padding-top: 25px;
+	border: 1px solid color('light-gray'); 
+	border-radius: 10px 10px 0px 0px; 
+	background: color('white'); 
+}
+
+
+.browser-bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0; 
+	height: 25px;
+	border-bottom: 1px solid color('light-gray'); 
+}
+ 
+.browser-content {
+	position: relative; 
+	overflow: hidden; 
+	padding-top: 100 / 16 * 9%;
+
+	video {
+		position: absolute;
+		left: 0;
+		top: 1px;
+		width: 100%;
+		height: auto; 
+	}
+}
+
+.browser-window--full .browser-content {
+	padding-top: 0; 
+	
+	video {
+		position: relative;
+		width: 100%;
+		height: auto; 
+	}
+
+}
+
+.dot {
+	position: absolute;
+	top: 7px;
+	width: 11px;
+	height: 11px;
+	border-radius: 5px;
+	background: lighten(color('light-gray'), 3%);
+}
+
+.dot:nth-child(1) { left: 12px; }
+.dot:nth-child(2) { left: 29px; }
+.dot:nth-child(3) { left: 46px; }
+
+.project-overlay-link {
+	left: 0;
+	top: 1px;
+	bottom: 0;
+	right: 0; 
+	z-index: 2; 
+	background: color('white'); 
+	overflow: hidden; 
+
+	opacity: 0;
+	transition: all 0.3s ease-in-out; 
+
+	span {
+		top: 48%; 
+		font-family: 'LabGrotesque-Light'; 
+		font-size: $big-font-size; 
+		color: color('brand'); 
+	}
+	
+	@include respond-to('>desktop') {
+		&:hover {
+			opacity: 0.95;
+		}
+	}
+	
+}
+
+
+
+
+

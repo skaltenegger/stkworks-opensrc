@@ -1,0 +1,72 @@
+# Ignore test results
+actual
+results
+
+# Ignore compiled docs
+_gh_pages
+_gh-pages
+_site
+
+# Numerous always-ignore extensions
+*.csv
+*.dat
+*.diff
+*.err
+*.gz
+*.log
+*.log
+*.orig
+*.out
+*.pid
+*.rej
+*.ruby-version
+*.sass-cache
+*.seed
+*.swo
+*.swp
+*.vi
+*.zip
+*~
+lib-cov
+
+# OS or Editor folders
+.DS_Store
+._*
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-*
+.editorconfig
+
+# Komodo
+*.komodoproject
+.komodotools
+
+# Folders to ignore
+.hg
+.svn
+.CVS
+.idea
+tmp
+pids
+build
+src
+node_modules
+installer
+.sass-cache
+composer
+embedded/toolset
+embedded/toolset/toolset-common
+embedded/toolset/onthego-resources
+
+# Types
+embedded/autoload.php
+
+# Files to ignore
+npm-debug.log
+composer.lock
+composer.json

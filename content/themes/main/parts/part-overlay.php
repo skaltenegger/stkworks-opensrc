@@ -1,0 +1,7 @@
+	<div class="js-img-overlay overlay img-overlay">
+		<div class="layout center">
+			<svg class="overlay-icon" width="56" height="56" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="#005467"><path d="M4.5,0.1 L9.1,0.1 C9.5,0.1 9.9,0.5 9.9,0.9 L9.9,5.5 C9.9,5.9 9.5,6.3 9.1,6.3 C8.7,6.3 8.3,5.9 8.3,5.5 L8.3,1.7 L4.5,1.7 C4.1,1.7 3.7,1.3 3.7,0.9 C3.7,0.5 4.1,0.1 4.5,0.1 L4.5,0.1 Z" transform="translate(31 15)"/><path d="M0.9,9.2 C1.2,9.5 1.7,9.5 2,9.2 L9.1,2.1 C9.3,1.9 9.3,1.7 9.3,1.5 C9.3,1.3 9.2,1.1 9.1,0.9 C8.9,0.7 8.7,0.7 8.5,0.7 C8.3,0.7 8.1,0.8 7.9,0.9 L0.9,8 C0.7,8.2 0.7,8.4 0.7,8.6 C0.7,8.8 0.8,9 0.9,9.2 L0.9,9.2 Z" transform="translate(31 15)"/></g><g fill="#005467"><path d="M6.4,10.2 L1.8,10.2 C1.4,10.2 1,9.8 1,9.4 L1,4.8 C1,4.4 1.4,4 1.8,4 C2.2,4 2.6,4.4 2.6,4.8 L2.6,8.6 L6.4,8.6 C6.8,8.6 7.2,9 7.2,9.4 C7.2,9.8 6.8,10.2 6.4,10.2 L6.4,10.2 Z" transform="translate(15 30)"/><path d="M10,1.1 C9.7,0.8 9.2,0.8 8.9,1.1 L1.8,8.2 C1.6,8.4 1.6,8.6 1.6,8.8 C1.6,9 1.7,9.2 1.8,9.4 C2,9.6 2.2,9.6 2.4,9.6 C2.6,9.6 2.8,9.5 3,9.4 L10.1,2.3 C10.3,2.1 10.3,1.9 10.3,1.7 C10.2,1.5 10.1,1.3 10,1.1 L10,1.1 Z" transform="translate(15 30)"/></g><path stroke="#005467" stroke-width="2" d="M0.9 0.2H53.9V53.2H0.9z" transform="translate(1 1)"/></g></svg>
+			<span class="js-overlay-title overlay-label overlay-title"><?php the_sub_field('l_title'); ?></span>
+			<span class="js-overlay-sub-title overlay-label overlay-sub-title"><?php the_sub_field('l_sub-title'); ?></span>
+		</div>
+	</div>

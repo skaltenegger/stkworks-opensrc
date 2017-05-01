@@ -1,0 +1,138 @@
+.has-arrow {
+	
+	display: inline-block;
+
+	svg {
+		display: inline-block;
+		height: 10px; 
+			
+		* {
+			stroke: red;
+			fill: none; 
+			stroke-width: 1.3px; 
+		}
+	}
+
+	.link-inner {
+		display:block;
+		height: 30px;
+	}
+
+	.arrow {
+		position: relative;
+		height: 30px;
+		width: 30px;
+		line-height: 30px;
+		overflow: hidden;
+
+		svg {
+			position: absolute;
+			top: 49%;
+			transform: translate(0, -50%);
+		}
+	}
+
+	.arrow--before {
+		opacity: 0; 
+		transform: translateX(-30px);
+
+		svg {
+			left: 0;
+		}
+
+		transition: opacity 0.15s linear 0s, transform 0.15s linear 0s;
+	}
+
+	.link-text {
+		width: auto; 
+		height: 30px;
+		line-height: 30px;
+		transform: translateX(-30px);
+
+		transition: transform 0.15s ease-in-out 0.1s;
+	}
+
+	.arrow--after {
+		svg {
+			right: 0;
+		}
+		transform: translateX(-30px);
+
+		transition: opacity 0.15s ease-in-out 0.2s, transform 0.15s ease-in-out 0.2s;
+	}
+
+	@include respond-to('<tablet') {
+		.arrow--before {
+			display: none;
+		} 
+
+		.link-text, .arrow--after {
+			transform: translateX(0);
+		}
+	}
+}
+
+.has-arrow.float--right {
+
+	transform: translateX(-5px);
+
+	@include respond-to('>=tablet') {
+		transform: translateX(25px); 
+	}
+}
+
+// .touchevents {
+// 	.arrow--before {
+// 		display: none;
+// 	} 
+
+// 	.link-text, .arrow--after {
+// 		transform: translate(0);
+// 	}
+// }
+
+.has-arrow:hover {
+
+	@include respond-to('>desktop') {
+		.arrow--before {
+			opacity: 1;
+			transform: translateX(0);
+			transition: opacity 0.15s ease-in-out 0.2s, transform 0.15s ease-in-out 0.2s;
+		}
+
+		.link-text {
+			transform: translateX(0px);
+			transition: transform 0.15s ease-in-out 0.1s;
+		}
+
+		.arrow--after {
+			opacity: 0 !important;
+			transform: translateX(0px);
+			transition: opacity 0.15s ease-in-out 0s, transform 0.15s ease-in-out 0s;
+		}	
+	}
+}
+
+.has-arrow.is-active {
+	.arrow--before {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	.link-text {
+		transform: translateX(0px);
+	}
+
+	.arrow--after {
+		opacity: 0 !important;
+		transform: translateX(0px);
+	}	
+}
+
+// .has-arrow.has-margin {
+// 	margin-top: 30px; 
+// }
+
+.no-transition {
+	transition: none; 
+}

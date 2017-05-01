@@ -1,0 +1,272 @@
+
+
+.book-overlay {
+	position: absolute;
+	left: -9999em;
+	z-index: z('modal', 'down');
+	opacity: 0;
+	transform: scale(0.95);
+	transition: transform 0.4s ease-in-out, opacity 0.6s ease-out;
+}
+
+
+.book {
+	position: relative;
+	width: 100%;
+}
+
+.book-description-box {
+	position: relative;
+	z-index: z('modal', 'up');
+
+	@include respond-to('<tablet'){
+		padding-top: px-to-em(65px);
+		text-align: center;
+	}
+
+	@include respond-to('>=tablet'){
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		max-width: px-to-em(324px);
+		opacity: 0;
+		transition: opacity 0.4s 0.5s ease-in-out;
+		width: 33.333333%;
+	}
+
+	@include respond-to('>=monitor'){
+		width: 20.25%;
+	}
+}
+
+
+.book-description-box-inner {
+	padding: $base-spacing-unit;
+	background-color: color('text-alt');
+	margin-bottom: 1px;
+}
+
+
+.book-label {
+	@include font-size(13px, 10px);
+	font-family: $heading2-font-family;
+	color: color('brand');
+	display: block;
+	text-transform: uppercase;
+	padding-bottom: px-to-em(10px, 13px);
+
+	@include respond-to('<tablet'){
+		display: none;
+	}
+}
+
+.book-text {
+	display: block;
+	@include font-size(20px);
+
+	@include respond-to('>=tablet'){
+		padding-bottom: $base-spacing-unit;
+	}
+}
+
+.book-title {
+	@include respond-to('<tablet'){
+		color: color('brand');
+		padding-bottom: px-to-em(10px);
+	}
+}
+
+.book-meta {
+	@include respond-to('<tablet'){
+		@include font-size($small-font-size);
+	}
+}
+
+
+.book-navigation{
+	@include respond-to('<tablet'){
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+	}
+}
+
+.book-button {
+	position: relative;
+	display: block;
+	float: left;
+	overflow: hidden;
+	width: 33.2%; /// 107px / 324px
+	text-align: center;
+	height: px-to-em(64px);
+
+
+	@include color('text-alt', background-color, 0.9);
+	transition: all 0.4s linear;
+
+	@include respond-to('>=tablet'){
+		background-color: color('text-alt');
+		width: 33.1%; /// 107px / 324px
+	}
+
+	svg {
+		margin: 0 auto;
+	}
+
+
+	.button-label {
+		@include font-size(13px, 17px);
+		text-transform: uppercase;
+		display: block;
+		color: color('text-alt');
+	}
+
+
+	.default-state {
+		opacity: 1;
+		transition: all 0.4s ease-in-out;
+	}
+
+
+	.hover-state {
+		opacity: 0;
+		transform: translate(-50%, -40%);
+		transition: all 0.4s ease-in-out;
+	}
+
+
+	&:hover {
+		@include respond-to('>=tablet'){
+			background-color: color('brand');
+		}
+
+		.default-state {
+			@include respond-to('>=tablet'){
+				opacity: 0;
+				transform: translate(-90%, -50%);
+			}
+		}
+
+		.default-state-reverse {
+			@include respond-to('>=tablet'){
+				transform: translate(-10%, -50%);
+			}
+		}
+
+		.hover-state {
+			@include respond-to('>=tablet'){
+				opacity: 1;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+}
+
+.book-button-center {
+	margin: 0 0.2%; /// 1px / 324px
+	// margin: 0 2px; /// 1px / 324px
+	@include respond-to('>=tablet'){
+		margin: 0 0.35%; /// 1px / 324px
+
+	}
+}
+
+@include respond-to('>=tablet'){
+	.book-button-center:hover {
+		svg g {
+			stroke: white;
+		}
+	}
+}
+
+
+.book-section-wrapper {
+	position: relative;
+}
+
+
+.book-item.fullscreen {
+	@include respond-to('<=desktop'){
+		height: auto;
+	}
+}
+
+
+/// CONTROLS
+.book-section-controls {
+	display: none;
+
+	@include respond-to('>=tablet'){
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100vh;
+		z-index: z('modal', 'base');
+	}
+}
+
+.book-section-control {
+	width: 100%;
+	height: 50%;
+	display: block;
+}
+
+.book-section-control--prev {
+	top: 0;
+	cursor: url('../gfx/svg/cursor-up.svg'), auto;
+
+	&.is-inverted {
+		cursor: url('../gfx/svg/cursor-down.svg'), auto;
+	}
+}
+
+.book-section-control--next {
+	top: 50%;
+	cursor: url('../gfx/svg/cursor-down.svg'), auto;
+
+	&.is-inverted {
+		cursor: url('../gfx/svg/cursor-up.svg'), auto;
+	}
+}
+
+
+
+/// STATES
+.is-book-open {
+	.site-content {
+		display: none;
+	}
+
+	.book-overlay {
+		position: relative;
+		left: 0;
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	.book-description-box {
+		opacity: 1;
+	}
+
+	.book-section-controls {
+		display: block;
+	}
+
+	& + .site-footer {
+		display: none;
+	}
+}
+
+
+/// open animation
+// .slick-active .book-item[data-book-item-index='0'] .book-imgs {
+// 	transform: scale(0.95);
+// 	transition: transform 0.4s ease-in-out, opacity 0.6s ease-out;
+// }
+
+// .is-book-open {
+// 	.book-item[data-book-item-index='0'] .is-loaded {
+// 		transform: scale(1);
+// 	}
+// }

@@ -1,0 +1,24 @@
+.module--next-project {
+	background: color('bg-light'); 
+} 
+
+
+.label--next-project {
+	color: color('brand') !important;
+
+	svg {
+		height: 10px;
+		width: auto; 
+		display: inline-block; 
+
+		* {
+			fill: none;
+			stroke: color('brand') !important; 
+			stroke-width: 1.3px;
+		}
+	} 
+}
+
+.label--next-project-name {
+	color: color('text');
+}

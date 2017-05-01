@@ -1,0 +1,65 @@
+.page-wrapper {
+	margin: 0 auto;
+}
+
+
+
+.centered-module {
+	display: block; 
+	max-width: 90%;
+	margin: 0 auto;
+
+	@include respond-to('>=tablet', '<=desktop') {
+		width: 80%;  
+	}
+	@include respond-to('>desktop'){
+		width: 75%; 
+	}
+}
+
+
+
+.project-info--full {
+	width: 90%;
+
+	@include respond-to('>=tablet', '<=desktop') {
+		width: 80%;  
+	}
+	@include respond-to('>desktop') {
+		width: 75%; 
+	}
+
+	.info {
+		color: color('medium-gray');
+	}
+}
+
+.project-description {
+	@include respond-to('>=tablet', '<=desktop') {
+		width: 80%;  
+	}
+}
+
+
+
+.site-footer {
+	
+	.footer-contact {
+		width: 90%;
+		margin: 0 auto;
+		padding: px-to-em($base-spacing-unit * 2) 0;
+
+		@include respond-to('>=tablet') {
+			padding: px-to-em($base-spacing-unit * 2.5) 0;
+		}
+
+		@include respond-to('>desktop'){
+			width: 75%;
+		}
+		
+	}
+}
+
+.site-footer.has-bg {
+	background: color('bg-light');
+}

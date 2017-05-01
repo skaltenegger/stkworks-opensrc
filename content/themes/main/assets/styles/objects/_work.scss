@@ -1,0 +1,194 @@
+.work {
+	position: relative;
+	overflow: hidden;
+	img {
+		width: 100%;
+	}
+}
+
+// .sub-nav .work {
+// 	opacity: 0;
+// }
+
+	.work__title {
+		box-sizing: border-box;
+		font-size: 5vw;
+		font-family: $heading-font-family;
+		color: color('text-alt');
+
+		position: absolute;
+		// top: px-to-em(20px, 18px);
+		top: 0;
+		left:0;
+		display: block;
+		width: 100%;
+		z-index: z('base');
+		padding-top: px-to-em(5px, 18px);
+		padding-bottom: px-to-em(5px, 18px);
+
+
+		@include respond-to('>=tablet'){
+			font-size: 3.7vw;
+			padding-top: px-to-em(20px, 48px);
+			padding-bottom: px-to-em(20px, 48px);
+			// top: px-to-em(20px, 48px);
+		}
+
+	}
+
+		.work__title--small {
+			font-size: 3vw;
+			padding-top: px-to-em(10px, 18px);
+			padding-bottom: px-to-em(10px, 18px);
+			@include respond-to('>=tablet'){
+				padding-top: px-to-em(30px, 48px);
+				padding-bottom: px-to-em(30px, 48px);
+			}
+		}
+
+
+		.work__title--big {
+			padding-left: px-to-em($base-spacing-unit / 2, 18px);
+			padding-right: px-to-em($base-spacing-unit / 2, 18px);
+
+			@include respond-to('>=tablet'){
+				padding-left: px-to-em($base-spacing-unit, 48px);
+				padding-right: px-to-em($base-spacing-unit, 48px);
+			}
+		}
+
+		.work__title--text-right {
+			text-align: right;
+		}
+
+		.work__title--text-bottom {
+			top: auto;
+			bottom: 0;
+			@include respond-to('>=tablet'){
+				// bottom: px-to-em(30px, 48px);
+			}
+		}
+
+		.work__title--small.work__title--text-bottom {
+			@include respond-to('>=tablet'){
+				top: auto;
+				// bottom: px-to-em(30px, 35px);
+			}
+		}
+
+
+	.work__img {
+		transform: translate3d(0,0,0);
+		transition: all 0.5s ease-in-out;
+		display: block;
+	}
+
+
+
+
+.work:hover {
+	.work__img {
+		transform: translate3d(0,0,0) scale(1.015);
+	}
+}
+
+.sub-nav {
+	.work {
+		opacity: 0;
+	}
+	.work__title {
+		font-size: 6.5vw;
+
+		@include respond-to('<tablet'){
+			bottom: 0;
+			top: auto;
+			text-align: center;
+			display: block;
+			padding-top: px-to-em(10px, 23px);
+			padding-bottom: px-to-em(10px, 23px);
+		}
+
+		@include respond-to('>=tablet'){
+			font-size: 3vw;
+		}
+	}
+
+	.work__title--small {
+		font-size: 5.5vw;
+
+		@include respond-to('<tablet'){
+			padding-top: px-to-em(10px, 20px);
+			padding-bottom: px-to-em(10px, 20px);
+		}
+
+		@include respond-to('>=tablet'){
+			font-size: 2.3vw;
+		}
+	}
+}
+
+.module {
+	.work__title {
+		@include respond-to('<tablet'){
+			font-size: 8.5vw;
+			padding-top: px-to-em(15px, 30px);
+			padding-bottom: px-to-em(15px, 30px);
+		}
+	}
+
+	.work__title--small {
+		font-size: 3vw;
+		@include respond-to('<=tablet'){
+			padding-top: px-to-em(13px, 23px);
+			padding-bottom: px-to-em(13px, 23px);
+		}
+
+		@include respond-to('<tablet'){
+			font-size: 7vw;
+		}
+	}
+}
+
+
+
+.is-all { /// startpage
+	.work__title {
+		@include respond-to('<tablet'){
+			top: auto;
+			bottom: 0;
+			text-align: center;
+			font-size: 8.5vw;
+		}
+	}
+
+	.work__title--small {
+		font-size: 3vw;
+		@include respond-to('<tablet'){
+			font-size: 7vw;
+			padding-top: px-to-em(8px, 22px);
+			padding-bottom: px-to-em(8px, 22px);
+		}
+	}
+
+
+	.work__title--mobile-left {
+		@include respond-to('<tablet'){
+			text-align: left !important;
+			padding-left: px-to-em($base-spacing-unit / 2, 18px);
+			padding-right: px-to-em($base-spacing-unit / 2, 18px);
+		}
+	}
+
+
+	.work__title--mobile-right {
+		@include respond-to('<tablet'){
+			text-align: right;
+		}
+	}
+}
+
+.work-cat-teaser {
+	.work__title--small {
+		font-size: 3vw;
+	}
+}

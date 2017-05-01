@@ -1,0 +1,77 @@
+/*------------------------------------*\
+		#ORDERS A HAMBURGER MENU
+\*------------------------------------*/
+
+/**
+ * Creates a `.big-mac` class to style a hamburger menu
+ * Required markup:
+ * <div class="big-mac big-mac--rounded">
+		<div class="big-mac__bars"></div>
+	</div>
+ *
+ * For configuration options see variables below:
+ */
+
+$burger-size: 16px !default;
+$burger-bar-height: $burger-size / 8 !default;
+$burger-offset: $burger-bar-height * 2.5 !default;
+$burger-bar-border-radius: 10px !default;
+
+$burger-transition-duration: 0.4s !default;
+$burger-transition-timing-func: ease-in-out !default;
+$burger-toggled-size: 1 !default;
+
+%bm__bar {
+	// width: $burger-size;
+	width: 100%;
+	height: $burger-bar-height;
+	background: color('text-dark');
+	// transition: all $burger-transition-duration $burger-transition-timing-func;
+	@if($burger-bar-border-radius != 0){
+		border-radius: $burger-bar-border-radius;
+	}
+}
+
+.big-mac {
+	position: relative;
+	height: ($burger-offset*2) + $burger-bar-height;
+	width: 23px;
+	display: block;
+	float: left;
+	padding-top: px-to-em(16px);
+
+	@include respond-to('>=tablet'){
+		width: $burger-size;
+	}
+}
+
+	.big-mac__bars {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		margin-top: -($burger-bar-height/2);
+		@extend %bm__bar;
+		// transition: all $burger-transition-duration $burger-transition-timing-func;
+
+		&:before,
+		&:after {
+			@extend %bm__bar;
+			content: "";
+			position: absolute;
+		}
+
+		&:before {
+			transform: translate3d(0, -6px, 0);
+
+			@include respond-to('>=tablet'){
+				transform: translate3d(0, -$burger-offset, 0);
+			}
+		 }
+		&:after {
+			transform: translate3d(0, 6px, 0);
+
+			@include respond-to('>=tablet'){
+				transform: translate3d(0, $burger-offset, 0);
+			}
+		 }
+	}

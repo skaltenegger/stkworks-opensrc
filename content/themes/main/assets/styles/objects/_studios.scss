@@ -1,0 +1,216 @@
+
+$studio-fade-duration: 0.4s;
+$studio-slide-duration: 0.5s;
+
+.map {
+	width: 100%;
+	height: 100%;
+	@include respond-to('<desktop'){
+		display: none;
+	}
+}
+
+.studios {
+	position: relative;
+	z-index: z('modal', 'up');
+	padding-bottom: px-to-em(175px);
+
+	.line--dashed {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -57%);
+		padding-right: 20px; /// adjust line to match weather icons
+		pointer-events: none;
+
+		@include respond-to('<tablet'){
+			display: none;
+		}
+	}
+	& > .layout {
+		position: relative;
+		z-index: z('modal', 'base');
+		padding-top: 65px;
+		@include respond-to('>=tablet'){
+			padding-top: 125px;
+		}
+	}
+}
+
+.studio {
+	position: relative;
+	opacity: 1;
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.studio--styria {
+	@include respond-to('>=tablet'){
+		padding-top: px-to-em(280px);
+	}
+}
+
+
+.studio--vienna {
+	text-align: right;
+}
+
+	.studio__content {
+		position: relative;
+		z-index: z('modal', 'base'); // to hide the line of the weather icon
+		transform: translate(0,0);
+	}
+
+.studio-label-small {
+	@extend %small;
+	@extend %f-alt;
+	@extend %caps;
+	color: color('f-grey');
+
+	@include respond-to('<tablet'){
+		position: relative;
+		z-index: z('base');
+		margin-bottom: px-to-em(-8px);
+	}
+}
+
+.studio-label {
+	@include font-size($huge-font-size, $huge-font-size);
+	font-family: $heading-font-family;
+	margin-bottom: 0;
+	display: inline-block;
+	@include respond-to('>=tablet'){
+		background: color('bg-light');
+	}
+
+}
+
+.studio--styria .studio-label {
+	padding-right: px-to-em(10px);
+}
+
+.studio--vienna .studio-label {
+	padding-left: px-to-em(10px);
+}
+
+
+.line--dashed {
+	margin: 0 auto;
+}
+
+.sliding-bg {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: color('bg-light');
+}
+
+.sliding-bg--left {
+	right: 50%;
+}
+
+.sliding-bg--right {
+	left: 50%;
+}
+
+.is-open--left {
+
+	.sliding-bg--left {
+		transform: skew(-$skew-angle-open) translate(-8%);
+	}
+
+	.sliding-bg--right {
+		transform: skew(-$skew-angle-open) translate(60%);
+	}
+
+	.studio--vienna {
+		opacity: 0;
+		.studio__content {
+			transform: translate(0, 10%);
+		}
+	}
+
+	.weather-slogan,
+	.weather-icon-store,
+	.line--dashed {
+		opacity: 0;
+	}
+
+	/// ignore studio layer
+	/// in order to be able to move the map
+	.studios,
+	.line--dashed {
+		pointer-events: none;
+	}
+
+	.studio--styria {
+		pointer-events: auto;
+	}
+
+}
+
+.is-open--right {
+
+	.sliding-bg--left {
+		transform: skew(-$skew-angle-open) translate(-60%);
+	}
+
+	.sliding-bg--right {
+		transform: skew(-$skew-angle-open) translate(7%);
+	}
+
+	.studio--styria {
+		opacity: 0;
+
+		.studio__content {
+			transform: translate(0, 10%);
+		}
+	}
+
+	.weather-slogan,
+	.weather-icon-store,
+	.line--dashed {
+		opacity: 0;
+	}
+
+	/// ignore studio layer
+	/// in order to be able to move the map
+	.studios,
+	.line--dashed {
+		pointer-events: none;
+	}
+
+	.studio--vienna {
+		pointer-events: auto;
+	}
+
+
+}
+
+
+///
+/// ANIMATION
+///
+.a-fade,
+.a-slide-down {
+	transition: all $studio-fade-duration 0s ease-in-out;
+}
+
+.a-slide {
+	transition: all $studio-slide-duration $studio-fade-duration ease-in-out;
+}
+
+.inverse-animation {
+
+	.a-slide {
+		transition-delay: 0s;
+	}
+
+	.a-fade,
+	.a-slide-down {
+		transition-delay: $studio-slide-duration;
+	}
+}

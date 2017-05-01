@@ -1,0 +1,63 @@
+.weather-icon-store {
+	position: absolute;
+}
+
+.weather-icon-store--styria {
+	right: 0;
+	bottom: 125px;
+	@include respond-to('<tablet'){
+		bottom: 132px;
+	}
+}
+
+.weather-icon-store--vienna {
+	left: 0;
+	top: 32px;
+	@include respond-to('<tablet'){
+		top: 21px;
+	}
+}
+
+.weather-icon {
+	display: none;
+}
+
+.is-current-weather {
+	display: block;
+}
+
+.temperature {
+	transform: translate(0, -100%);
+	fill: color('bg-light');
+}
+
+.weather-slogan {
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	padding-bottom: 2* $base-spacing-unit;
+	font-family: $special-font-family;
+}
+
+
+.weather-icon-store circle {
+	transition: all 0.4s ease-in-out;
+}
+
+.studio__content:hover {
+	cursor: pointer;
+	& + .weather-icon-store circle {
+		@include respond-to('>tablet'){
+			fill: color('brand');
+		}
+	}
+
+	& + .weather-icon-store .weather {
+		@include respond-to('>tablet'){
+			opacity: 0;
+		}
+	}
+}

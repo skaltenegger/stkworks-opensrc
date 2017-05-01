@@ -1,0 +1,24 @@
+.is-small .single-image {
+	width: 80%;
+	max-width: px-to-em(720px);
+}
+
+.image-block {
+	background-color: color('bg', 'light');
+	margin: 1px;
+	opacity: 0;
+
+	transition: opacity 0.3s ease-in-out;
+
+	@include respond-to('>=tablet'){
+		margin: px-to-em(3px);
+	}
+
+	svg {
+		max-width: 100%;
+	}
+
+	.is-ready & {
+		opacity: 1;
+	}
+}

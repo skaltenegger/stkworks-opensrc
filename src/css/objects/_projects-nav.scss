@@ -1,0 +1,62 @@
+.projects-sticky-nav {
+	position: fixed;
+	left: 10px;
+	top: 50%;
+	transform: translate(0, -50%); 
+
+	@include respond-to('<tablet') {
+		display: none; 
+	}
+}
+
+.projects-nav-list {
+	margin-bottom: 0; 
+}
+
+.menu_link {
+	display: block;
+	width: 40px;
+	height: 40px; 
+	margin-bottom: 10px; 
+	text-align: center; 
+	font-family: $special-font-family;
+	@include font-size(13px, 40px); 
+	border-radius: 50%; 
+
+	transition: color 0.3s ease 0s; 
+}
+
+.menu_link.icon svg > * {
+	stroke: color('text');
+	stroke-linejoin:round;
+	stroke-width: 1px;
+	fill: none; 
+}
+
+.menu_link.active {
+	@include color('brand'); 
+}
+
+.menu_link.icon.active {
+	svg > * {
+		stroke: color('brand');
+	}
+}
+
+.projects-nav-list:hover .menu_link {
+	color: color('text');
+	//background: color('bg-light');
+
+	svg > * {
+		stroke: color('text');
+	}
+}
+
+.projects-nav-list .menu_link:hover {
+	color: color('brand');
+	//background: color('bg-light');
+
+	svg > * {
+		stroke: color('brand');
+	}
+}

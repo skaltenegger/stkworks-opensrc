@@ -1,0 +1,38 @@
+.button {
+	border: 2px solid color('brand');
+	color: color('brand');
+	padding: 0 px-to-em(30px);
+	line-height: px-to-em(48px);
+	display: inline-block;
+	height: px-to-em(48px, 22px);
+
+	appearance: none;
+	background: none;
+
+	&:focus {
+		outline: 0;
+	}
+
+	&:hover {
+		background-color: color('brand');
+		color: color('white');
+	}
+}
+
+
+.button--small {
+	@extend %small;
+	line-height: px-to-em(35px);
+	height: px-to-em(35px, 22px);
+
+}
+
+.service-cta .button {
+	transition: all 0.5s ease-in-out;
+	&:before,
+	&:after {
+		display: none;
+	}
+
+
+}

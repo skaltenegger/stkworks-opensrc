@@ -1,0 +1,13 @@
+.site {
+	min-height: 100%;
+	overflow-x: hidden;
+}
+
+svg {
+	display: block;
+}
+
+a, 
+button {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}

@@ -1,0 +1,88 @@
+	// prevent hover effect when images aren't loaded
+	.has-loaded + .img-overlay {
+		display: block;
+	}
+
+	.img-overlay {
+		display: none;
+		@include color('bg-white', background-color, 0.8);
+		text-align: center;
+		opacity: 0;
+		transition: all 0.5s ease-in-out;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 101%;
+		height: 101%;
+		z-index: z('modal', 'base');
+
+
+		&:hover {
+			@include respond-to('>=tablet'){
+				opacity: 1;
+			}
+
+			.overlay-icon {
+				@include respond-to('>=tablet'){
+					opacity: 1;
+				}
+			}
+
+			.overlay-label {
+				@include respond-to('>=tablet'){
+					transform: translate(0, 0);
+				}
+			}
+		}
+
+		&.animate-out {
+			@include respond-to('>=tablet'){
+				opacity: 0;
+			}
+
+
+
+			.overlay-icon {
+				@include respond-to('>=tablet'){
+					opacity: 0;
+				}
+
+			}
+
+			.overlay-label {
+				transform: translate(0, 15%);
+			}
+		}
+	}
+
+	.overlay-icon {
+		display: block;
+		margin: px-to-em(5px) auto px-to-em(15px) auto;
+		opacity: 0;
+		transition: all 0.6s 0.2s ease-out;
+	}
+
+	.overlay-label {
+		transform: translate(0, 15%);
+		transition: all 0.4s 0.1s ease-out;
+		padding: 0 $base-spacing-unit;
+		display: block;
+	}
+
+	.overlay-title {
+		color: color('brand');
+		padding-bottom: px-to-em(5px);
+		// font-family: $heading3-font-family;
+	}
+
+	.overlay-sub-title {
+		@extend %small;
+		text-transform: uppercase;
+	}
+
+
+
+// [data-size="445x670"] .overlay-pos {
+// 	padding-top: 75.28089887640449%; /// 670:2=335 / 445
+// 	transform: translate(0, -28px); /// center the zoom-icon
+// }

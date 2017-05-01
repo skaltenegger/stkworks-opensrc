@@ -1,0 +1,18 @@
+/**
+ * mixing: map mit colors, inkl optionaler parameter opacity,
+ *
+ * rückgabe rgb bzw. rgba
+ * IE8 fallback
+ *
+ */
+
+@mixin color($c-name, $property: 'color', $c-alpha: 1) {
+	$color: map-get($colors, $c-name);
+	#{$property}: $color;
+
+  @if $c-alpha < 1 {
+  	#{$property}: rgba($color, $c-alpha);
+  }
+
+}
+

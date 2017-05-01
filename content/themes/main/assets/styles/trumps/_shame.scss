@@ -1,0 +1,16 @@
+
+$thickness: 6; 
+$offset: 6; 
+$start: 65 + $offset - $thickness*0.5%; 
+$end: 65 + $offset + $thickness*0.5%; 
+
+.underline {
+	background-image: linear-gradient(transparent $start, color('brand') $start, color('brand') $end, transparent $end);
+}
+
+.float-right-on-desk {
+	@include respond-to('>=desktop') {
+		float: right; 
+	}
+}
+

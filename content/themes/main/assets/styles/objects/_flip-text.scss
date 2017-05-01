@@ -1,0 +1,59 @@
+/// flip text
+///
+.flip {
+	overflow: hidden;
+	position: relative; /// needed for overflow: hidden;
+	display: inline-block;
+	box-sizing: border-box;
+	height: px-to-em(46px);
+
+	[class^="flip__"] {
+		transition: transform 0.5s cubic-bezier(0.640, -0.005, 0.580, 1.000);
+	}
+}
+
+.flip__flipped {
+	position: relative;
+	display: inline-block;
+	height: 100%;
+}
+
+.flip__default,
+.flip__sent {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 100%;
+	left: 0;
+}
+
+.flip__sent {
+	top: 200%;
+}
+
+.flip .flip__default,
+.flip .flip__flipped {
+	transform: translateY(-100%);
+}
+
+
+
+// .flip:hover .flip__default,
+// .flip:hover .flip__flipped {
+// 	transform: translateY(0%);
+// }
+
+.flip-trigger.is-flipped .flip__default,
+.flip-trigger.is-flipped .flip__flipped {
+	transform: translateY(0%);
+}
+
+.is-submitted .flip .flip__default,
+.is-submitted .flip .flip__flipped,
+.is-submitted .flip .flip__sent {
+	transform: translateY(-200%);
+}
+
+#form-submit .flip {
+	margin-top: -2px;
+}

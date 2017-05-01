@@ -1,0 +1,90 @@
+.module--imprint {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: color('white');
+	z-index: 500;
+
+	overflow-y: scroll; 
+	-webkit-overflow-scrolling: touch;
+
+	opacity: 0;
+	left: -100vw;
+
+	transition: opacity 0.3s linear, left 0s linear 0.3s; 
+}
+
+.module--imprint {
+
+	h1 {
+		@include font-size(34px, 46px); 
+		color: color('brand');
+		margin-bottom: 46px;
+	}
+
+	.centered-module p a {
+
+		color: color('medium-gray') !important; 
+		transition: all 0.3s ease-in-out; 
+
+		&:hover {
+			color: color('brand') !important;
+		}
+	}
+}
+
+.module--imprint.is-visible {
+	opacity: 1;
+	left: 0;
+	transition: opacity 0.3s linear, left 0s linear;
+}
+
+.close-link {
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	display: block;
+
+	top: 20px; 
+	
+	right: -200px; //so it's not in the way
+	transition: right 0s linear 0.3s; 
+
+	@include respond-to('>tablet') {
+		top: 40px;
+		right: 40px;
+	}
+
+	svg {
+		* {
+			stroke-width: 1.2px; 
+			stroke: color('brand');
+			fill: none;
+			transition: all 0.25s ease-in-out;
+		}
+
+		@include respond-to('<=desktop') {
+			circle {
+				fill: white; 
+			}
+		}
+	}
+}
+
+.module--imprint.is-visible .close-link {
+	right: 4.6%;
+	transition: right 0s linear; 
+}
+
+.no-touchevents .close-link:hover {
+	
+	line {
+		stroke: white;
+	}
+
+	circle {
+		fill: color('brand');
+	}
+}

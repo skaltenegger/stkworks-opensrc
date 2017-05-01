@@ -1,0 +1,241 @@
+
+.placeholder--gray {
+	background: white; 
+}
+
+.placeholder--gray {
+	&:before {
+		content: ''; 
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1; 
+		transform: scaleX(0); 
+	}
+}
+
+.hero-text-line, .hero-link {
+	&:before {
+		content: ''; 
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1; 
+		transform: scaleX(0); 
+	}
+}
+
+.hero-text {
+	opacity: 0; 
+}
+
+.hero-text-word, strike, .hero-link-inner {
+	opacity: 0; 
+}
+
+
+.placeholder--gray:before {
+	background: color('light-gray'); 
+}
+
+
+.hero-text-line:before {
+	background: color('text'); 
+	height: 103%;
+}
+
+.hero-link:before {
+	background: color('brand'); 
+}
+
+.menu_link {
+	opacity: 0; 
+	transform: translateX(-100px); 
+
+	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; 
+}
+
+.hero-image--glitch {
+	opacity: 0; 
+}
+
+.hero-image--static {
+	opacity: 0; 
+	transform: translate(-20%, 0);
+
+	transition: all 0.3s ease-in 1.9s;
+}
+
+.loader-line {
+	transform: scaleY(0);  
+}
+
+
+$duration: 1s; 
+$delay: 0.7; 
+
+.lets-go {
+
+	.loader-line {
+		animation: loaderLineAnim 0.7s ease-in-out 0s 1 normal forwards;
+	}
+
+	.placeholder--gray:before {
+		animation: wipeInFromRight $duration ease-in-out 0.9s 1 normal forwards;
+	}
+
+	.placeholder--gray {
+		animation: showBackground $duration ease-in-out 0.9s 1 normal forwards;
+	}
+	
+
+	.hero-text-line:before {
+		animation: wipeIn $duration ease-in-out 1.5s 1 normal forwards;
+	}
+
+	.hero-link:before {
+		animation: wipeIn $duration ease-in-out 2.5s 1 normal forwards;
+	}
+
+	
+
+
+	.hero-text {
+		opacity: 1; 
+	}
+
+	.hero-text-word, strike {
+		animation: showContents $duration ease-in-out 1.5s 1 normal forwards;
+	}
+
+	.hero-link-inner {
+		animation: showContents $duration ease-in-out 2.5s 1 normal forwards;
+	}
+
+	.delay--2 .hero-text-word, .delay--2 strike, .delay--2:before { animation-delay: 1.55s; }
+	.delay--3 .hero-text-word, .delay--3 strike, .delay--3:before { animation-delay: 1.6s; }
+
+	.delay2--1 .hero-text-word, .delay2--1 strike, .delay2--1:before { animation-delay: 1.65s; }
+	.delay2--2 .hero-text-word, .delay2--2 strike, .delay2--2:before { animation-delay: 1.7s; }
+	.delay2--3 .hero-text-word, .delay2--3 strike, .delay2--3:before { animation-delay: 1.75s; }
+
+	.delay3, .delay3:before { animation-delay: 2.7s; }
+
+
+	.hero-image--static {
+		opacity: 1; 
+		transform: translate(-15%, 0); 
+	}
+	
+	.menu_link {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	$baseDelay: 2;
+	
+	.projects-nav-list {
+		li:nth-child(1) .menu_link { transition-delay: $baseDelay +0s; }
+		li:nth-child(2) .menu_link { transition-delay: $baseDelay +0.1s; }
+		li:nth-child(3) .menu_link { transition-delay: $baseDelay +0.2s; }
+		li:nth-child(4) .menu_link { transition-delay: $baseDelay +0.3s; }
+		li:nth-child(5) .menu_link { transition-delay: $baseDelay +0.4s; }
+	}
+
+	.js-fill.lets-go {
+		animation-name: scrollDown; 
+	}
+
+}
+
+
+@keyframes wipeIn {
+	0% {
+		transform-origin: left;  
+		transform: scaleX(0);
+	} 
+	50% {
+		transform-origin: left; 
+		transform: scaleX(1);
+	}
+	50.001% {
+		transform-origin: right;
+	}
+	100% {
+		transform-origin: right;
+		transform: scaleX(0);
+	}
+}
+
+
+@keyframes wipeInFromRight {
+	0% {
+		transform-origin: right;  
+		transform: scaleX(0);
+	} 
+	50% {
+		transform-origin: right; 
+		transform: scaleX(1);
+	}
+	50.001% {
+		transform-origin: left;
+	}
+	100% {
+		transform-origin: left;
+		transform: scaleX(0);
+	}
+}
+
+@keyframes loaderLineAnim {
+	0% {
+		transform: scaleY(0);
+		background: color('brand');
+	} 
+	99% {
+		background: color('brand');
+		transform: scaleY(0.99);
+	}
+	100% {
+		background: color('bg-light');
+		transform: scaleY(1);
+	}
+}
+
+
+@keyframes showContents {
+	0% {
+		opacity: 0; 
+	} 
+	50% {
+		opacity: 0;
+	}
+	50.001% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1
+	}
+}
+
+
+@keyframes showBackground {
+	0% {
+		background: none; 
+	} 
+	50% {
+		background: none;
+	}
+	50.001% {
+		@include color('bg-light', 'background');
+	}
+	100% {
+		@include color('bg-light', 'background');
+	}
+}
+
+
+

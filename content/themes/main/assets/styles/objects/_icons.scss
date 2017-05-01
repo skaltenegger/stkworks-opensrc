@@ -1,0 +1,159 @@
+
+%icon {
+	appearance: none;
+	outline: 0;
+	background: 0;
+	border: none;
+}
+
+.icon-close.icon-close {
+	@extend %icon;
+	position: relative;
+	height: 16px;
+	width: 16px;
+	display: block;
+	padding: px-to-em(42px) px-to-em(36px) px-to-em(24px) px-to-em(36px);
+
+	// @include respond-to('<tablet'){
+	// 	height: 23px;
+	// 	width: 23px;
+	// }
+
+	&:before,
+	&:after {
+		@extend %bm__bar;
+		height: 1px;
+		width: 18px;
+		content: "";
+		position: absolute;
+		top: 50%;
+		transition: 0.3s ease-in-out;
+
+		@include respond-to('<tablet'){
+			width: 23px;
+		}
+	}
+
+	&:before {
+		transform: rotate(45deg);
+	}
+	&:after {
+		transform: rotate(-45deg);
+	}
+
+}
+
+.site-menu .icon-close {
+	position: absolute;
+	z-index: z('modal', 'base');
+}
+
+.icon-link {
+	display: inline-block;
+
+	@include respond-to('>=tablet') {
+		width: 150px;
+		margin: 0 auto; 
+	}
+
+	.label-wrapper {
+		transform: translate(0, 0);
+		transition: all 0.3s ease-in-out; 
+	}
+}
+
+.icon-link:hover .label-wrapper {
+	transform: translate(0, -3px);
+}
+
+.icon-link__svg {
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+
+	@include respond-to('<tablet'){
+		width: 80%;
+	}
+}
+
+.icon-link__svg .circle {
+	opacity: 0; 
+	transition: all 0.5s ease-out;
+}
+
+.hover-animation {
+	transform: translate(0, 0);
+	transition: all 0.3s ease-out;
+}
+
+.icon-link__label {
+	display: block;
+	color: color('brand');
+	padding-bottom: px-to-em(30px);
+
+	@include respond-to('>=tablet'){
+		padding-top: px-to-em(30px);
+	}
+}
+.is-sub-open {
+	.icon-close {
+		&:before {
+			transform-origin: left center;
+			width: 12px;
+			// transform: rotate(0deg);
+			// transform: translate(0, 0) rotate(45deg);
+		}
+
+		&:after {
+			transform-origin: left center;
+			width: 12px;
+			// transform: translate(0, 0) rotate(-45deg);
+			// transform: scale(0.5) rotate(-45deg);
+		}
+	}
+}
+
+
+.icon-link--services {
+	.icon-link__label,
+	svg path, svg .circle {
+		transition-delay: 0.75s;
+	}
+}
+
+.icon-link--references {
+	.icon-link__label,
+	svg path, svg .circle {
+		transition-delay: 1.5s;
+	}
+}
+
+.icon-link--contact {
+	.icon-link__label,
+	svg path, svg .circle {
+		transition-delay: 2.25s;
+	}
+}
+
+// .delay {
+// 	animation-delay: 0.5s;
+// }
+
+// .delay-1 {
+// 	animation-delay: 1s;
+// }
+
+// .delay-2 {
+// 	animation-delay: 1.5s;
+// }
+
+.enter-site {
+	position: absolute;
+	bottom: 20%;
+	left: 50%;
+	transform: translate(-50%, 50%);
+	svg {
+		opacity: 0;
+	}
+}
+

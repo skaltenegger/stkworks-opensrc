@@ -1,0 +1,35 @@
+.language-picker {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.lang {
+	padding: px-to-em(20px, 16px) px-to-em(36px, 16px);
+	display: block;
+
+	@include respond-to('<tablet'){
+		padding: px-to-em(20px, 16px) px-to-em(18px, 16px);
+	}
+}
+
+.is-active-lang {
+	@include respond-to('<desktop'){
+		display: none;
+	}
+}
+
+.is-inactive-lang {
+	@include respond-to('>=desktop'){
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		opacity: 0;
+
+		will-change: opacity, transform;
+		transform: translateZ(0);
+		transition: all 0.7s $menu-transition;
+	}
+}

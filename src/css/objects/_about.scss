@@ -1,0 +1,25 @@
+.show-more-info {
+	@include respond-to('>=tablet') {
+		display: none; 
+	}
+} 
+
+
+.more-info {
+	height: auto;
+
+	transition: all 0.3s ease-in-out; 
+}
+
+.hidden {
+	@include respond-to('<tablet') {
+		opacity: 0;
+		height: 0; 
+	}
+}
+
+.module--about.is-hidden {
+	opacity: 0;
+	transform: translateY(40px);
+}
+

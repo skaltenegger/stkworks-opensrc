@@ -1,0 +1,40 @@
+# Wordpress Media Files #
+#########################
+content/blogs.dir
+content/uploads
+content/*uploads/*
+
+content/cache/
+content/languages/
+content/w3tc-config/
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+*.swp
+
+# grunt #
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+.sass-cache
+node_modules
+
+build

@@ -1,0 +1,148 @@
+/// Color your life!
+$colors: (
+	"text":         #444442,
+	"text-alt":     #444442,
+	"brand":        #fc6a65,
+	"white":		#ffffff,
+	"light-gray":   #E1E1E1, 
+	"medium-gray":  #CACACA, 
+	"black":		#000,
+	"bg-light": 	#f5f5f5,
+	"blue": 		#0018ff,
+	"turquoise":	#0b5566,
+	"darkred": 	    #b1100c,
+	"exp": 			#fc6a65
+);
+
+$color-text: #444442;
+
+/// FONT SETTINGS
+$base-font-size:    16px;
+$small-font-size:   12px;
+$medium-font-size: 	18px;
+$big-font-size:     35px;
+$huge-font-size:    70px;
+$base-line-height:  30px;
+
+$big-line-height: 52px;
+
+$base-font-family:  'LabGrotesque-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$heading-font-family:  'LabGrotesque-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$special-font-family: 'RobotoMono-Regular', 'Courier New', Courier, Arial, sans-serif;
+
+
+/// LOADING CUSTOM FONTS
+$ffi-font-path: './fonts';
+$ffi-fonts: (
+	(
+		'name': 'LabGrotesque-Regular',
+		'src': (
+			'embedded-opentype': 'labgrotesque-regular.eot',
+			'woff': 'labgrotesque-regular.woff',
+			'woff2': 'labgrotesque-regular.woff2'
+		)
+	), (
+		'name': 'LabGrotesque-Regular-Italic',
+		'src': (
+			'embedded-opentype': 'labgrotesque-italic.eot',
+			'woff': 'labgrotesque-italic.woff',
+			'woff2': 'labgrotesque-italic.woff2'
+		),
+	), (
+		'name': 'LabGrotesque-Light',
+		'src': (
+			'embedded-opentype': 'labgrotesque-light.eot',
+			'woff': 'labgrotesque-light.woff',
+			'woff2': 'labgrotesque-light.woff2'
+		),
+	), (
+		'name': 'RobotoMono-Regular',
+		'src': (
+			'embedded-opentype': 'robotomono-regular.eot',
+			'woff': 'robotomono-regular.woff',
+			'woff2': 'robotomono-regular.woff2'
+		),
+	),
+);
+
+
+/// CONFIGUTE HEADINGS
+$headings: (
+	alpha: (
+		font-size:   28px,
+		line-height: 38px,
+		font-family: $heading-font-family,
+		font-weight: normal
+	),
+	beta: (
+		font-size:   12px,
+		line-height: 25px,
+		font-family: $special-font-family,
+		font-weight: normal
+	),
+	gamma: (
+		font-size:   16px,
+		line-height: 30px,
+		font-family: $heading-font-family,
+		font-weight: normal
+	)
+);
+
+
+$base-spacing-unit: 30px;
+
+$basecss-enable-margins: true; 
+$basecss-enable-paddings: true; 
+$basecss-enable-margins--double: true; 
+$basecss-enable-paddings--double: true; 
+$basecss-enable-margins--quadruple: true; 
+$basecss-enable-paddings--quadruple: true; 
+$basecss-enable-margins--half: true; 
+$basecss-enable-paddings--half: true; 
+$basecss-enable-paddings--quarter: true; 
+
+$basecss-enable-responsive-margins: true;
+$basecss-enable-responsive-margins--half: true;
+$basecss-enable-responsive-margins--double: true;
+$basecss-enable-responsive-margins--quadruple: true;
+
+$basecss-enable-responsive-paddings: true;
+$basecss-enable-responsive-paddings--double: true;
+$basecss-enable-responsive-paddings--quadruple: true;
+$basecss-enable-responsive-paddings--half: true;
+
+
+$breakpoints: (
+	'phone': 	   480px,
+	'600': 	   	   600px,
+	'tablet': 	   768px,
+	'desktop':    1024px,
+	'1280' :      1280px, 
+	'monitor':    1440px
+);
+
+$grid-breakpoints: (
+	'phone': 	('<=phone'),
+	'gmobilep': ('>phone'),
+	'mobile': 	('<tablet'),
+	'tablet':   ('>=tablet'),
+	'tablet-p': ('>=tablet', '<desktop'),
+	'tablet-w': ('>tablet', '<=desktop'),
+	'portable': ('<=desktop'),
+	'desk': 	('>=desktop'),
+	'gdesk': 	('>desktop'),
+	'lap':      ('>desktop', '<=monitor'),
+	'large': 	('>monitor'),
+);
+
+$skew-angle: 14deg;
+$skew-angle-open: 20deg;
+
+$menu-transition: cubic-bezier(0.77, 0, 0.175, 1);
+
+
+
+
+
+
+

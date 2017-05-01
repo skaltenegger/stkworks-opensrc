@@ -1,0 +1,90 @@
+
+
+/**
+ * generates for each color a class 
+ *
+ */
+
+@each $key, $value in $colors {
+
+	.c-#{$key} {
+		
+		h2, .label, .has-arrow, .has-arrow svg *, .back-to-overview svg *, .home-button, .live_label, .circle-link, .circle-link * {
+			color: color($key);
+			stroke: color($key); 
+		}
+
+		.centered-module p a {
+			color: color('medium-gray'); 
+			color: color($key);
+
+			transition: all 0.3s ease-in-out; 
+
+			&:hover {
+				color: color($key);
+			}
+		} 
+
+		
+		.circle-link:hover {
+			circle {
+				fill: color($key);
+			}
+
+			line, polyline {
+				stroke-width: 1.5px; 
+				stroke: white;
+			}
+			
+			.live_label {
+				color: white; 
+			}
+		}
+
+		.back-circle {
+			background: color($key);
+			stroke: none; 
+			z-index: 500; 
+			width: 35px;
+			height: 35px; 
+		}
+
+		.module--next-project .has-arrow svg * {
+			stroke: color('brand'); 
+		}
+
+
+
+		.module--imprint {
+
+			h2 {
+				color: color('brand');
+			}
+
+			.centered-module p a {				
+				&:hover {
+					color: color('brand');
+				}
+			} 
+		}
+		
+		.project-overlay-text {
+		 	color: color($key); 
+		 	color: white; 
+		}
+		.circle-overlay {
+			background: color($key);
+		}
+		.circle-overlay--white {
+			background: white;
+		}
+
+
+
+		::selection {
+			background: lighten(color($key),30%); 
+		} 
+
+	}
+
+}

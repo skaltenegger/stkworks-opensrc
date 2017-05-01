@@ -1,0 +1,98 @@
+.circle-link {
+	
+	position: fixed;
+	width: 40px;
+	height: 40px; 
+	display: block;
+	z-index: 500; 
+	
+	svg {
+		width: 100%;
+		height: auto; 
+		overflow: visible;
+		z-index: 500; 
+
+		* {
+			fill: none; 
+			stroke-width: 1.2px; 
+		}
+		
+		circle {
+	
+			fill: rgba(255,255,255,0);
+  
+			@include respond-to('<=desktop') {
+				fill: white; 
+			}
+			
+			transition: all 0.2s ease-in-out
+		}
+
+		line, polyline {
+			transition: all 0.2s ease-in-out;
+		}
+	}
+ 
+	transition: transform 0.2s ease-in-out;
+}
+
+.circle-link--back { 
+
+	@include respond-to('<tablet') {
+		top: 20px; 
+		left: 4.6%;
+	}
+
+	@include respond-to('>=tablet') {
+		top: 0; 
+		left: 20px; 
+	}
+}
+
+.circle-link--live {
+
+	@include respond-to('<tablet') {
+		top: 20px;
+		right: 4.6%; 
+	}
+	
+	@include respond-to('>=tablet') {
+		top: 120px; 
+		left: 20px; 
+	}
+}
+
+.circle-link--live.inactive {
+
+	@include respond-to('<tablet') {
+		top: 20px; 
+		right: 4.6%; 
+	}
+
+	@include respond-to('>=tablet') {
+		transform: translateX(-100px); 
+	}
+}
+
+.live_label {
+	position: absolute;
+	left: 50%; 
+	top: 50%;
+	transform: translate(-50%, -50%);  
+	transition: all 0.3s ease-in-out;
+}
+
+
+.back-circle {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	border-radius: 50%;
+	transform-origin: 50% 50%;
+	transform: translate(-50%, -50%) scale(1); 
+
+	opacity: 0; 
+}
+
+
+

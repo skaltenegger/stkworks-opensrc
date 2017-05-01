@@ -1,0 +1,48 @@
+
+%overlay,
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: z('modal', 'base');
+}
+
+.no-transition {
+	transition: none !important;
+}
+
+.skew {
+	transform: skew(-$skew-angle);
+}
+
+	.skew__content {
+		transform: skew($skew-angle);
+	}
+
+.hide-on-mobile {
+	@include respond-to('<tablet'){
+		display: none;
+	}
+}
+
+.hide-on-tablet-port {
+	@include respond-to('<desktop') {
+		display: none; 
+	}
+}
+
+.hide-on-desk {
+	@include respond-to('>=desktop') {
+		display: none; 
+	}
+}
+
+.m0a {
+	margin: 0 auto !important; 
+}
+
+.vb {
+	vertical-align: bottom !important; 
+}

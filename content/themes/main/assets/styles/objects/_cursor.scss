@@ -1,0 +1,31 @@
+#cursor {
+	position: absolute;
+	z-index: z('sky');
+	pointer-events: none;
+	opacity: 1;
+	transition: opacity 0.3s ease-in-out;
+
+	svg {
+		transition: transform 0.4s ease-in-out;
+	}
+}
+
+#cursor.is-rotated-up svg {
+	transform: rotate(180deg);
+}
+
+#cursor.is-rotated-down svg {
+	transform: rotate(0);
+}
+
+#cursor.is-rotated-left svg {
+	transform: rotate(90deg);
+}
+
+#cursor.is-rotated-right svg {
+	transform: rotate(-90deg);
+}
+
+#cursor.is-hidden {
+	opacity: 0;
+}

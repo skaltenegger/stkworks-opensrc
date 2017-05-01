@@ -1,0 +1,99 @@
+
+
+.video--single {
+	line-height: 0; 
+}
+
+.video--single video {
+	width: 100% !important;
+	height: auto !important;
+} 
+
+
+.home-button {
+	fill: none;
+	stroke: color('brand'); 
+	stroke-width: 0.29px;
+}
+
+
+.video--multi {
+	svg {
+		width: 90%;
+		height: auto; 
+		display: block; 
+		margin: 0 auto; 
+		z-index: 2; 
+	}
+	
+	video {
+		position: absolute;
+		left: 50%;
+		top: 49.5%;
+		width: 82%;
+		transform: translate(-50%, -50%); 
+		height: auto; 
+		z-index: -1; 
+	}
+}
+
+
+.video--multi .wrapper {
+	width: 75%; 
+}
+
+
+.video--solo {
+ 
+	.wrapper {
+		@include respond-to('>phone') {
+			width: 26%; 
+		}
+	}
+
+	.layout .wrapper {
+		margin: 0 auto; 
+	}
+
+}
+
+
+.video--double {
+
+	> .layout:first-child {
+		margin-bottom: 60px; 
+
+		@include respond-to('>phone') {
+			margin-bottom: 0; 
+		}
+	}
+ 	
+ 	.wrapper {
+ 		@include respond-to('>phone') {
+ 			width: 50%; 
+ 		}
+ 	}
+
+	.layout .wrapper {
+		margin: 0 auto; 
+	}
+
+}
+
+.video--triple {
+
+	.wrapper {
+		width: 70%; 
+	}
+
+	.layout:nth-child(2) .wrapper {
+		margin: 0 auto; 
+	}
+
+	.layout:nth-child(3) .wrapper {
+		float: right; 
+	}
+
+}
+
+

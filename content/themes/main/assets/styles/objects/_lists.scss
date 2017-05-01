@@ -1,0 +1,33 @@
+.big li {
+	@include font-size($big-font-size, $big-line-height);
+	font-family: $special-font-family;
+}
+
+.list {
+	position: relative;
+
+	@include respond-to('<tablet'){
+		margin-left: px-to-em(3px);
+		margin-right: px-to-em(3px);
+	}
+	@include respond-to('>=tablet'){
+		padding-left: $base-spacing-unit;
+		padding-top: 2 * $base-spacing-unit;
+	}
+
+	ul {
+			margin-bottom: 0;
+	}
+
+	h2 {
+		@include respond-to('<tablet'){
+			padding-top: px-to-em(3* $base-spacing-unit);
+		}
+		@include respond-to('>=tablet'){
+			padding-left: $base-spacing-unit;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+}

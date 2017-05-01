@@ -1,0 +1,61 @@
+
+.quote {
+	p {
+		font-family: $special-font-family;
+		color: color('brand');
+		@include font-size(31px, 38px);
+
+		@include respond-to('>=desktop'){
+			@include font-size($big-font-size, $big-line-height);
+		}
+	}
+
+	// br {
+	// 	@include respond-to('<desktop'){
+	// 		display: none;
+	// 	}
+	// }
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+
+	cite {
+		font-style: normal;
+		@include font-size(22px, 42px);
+	}
+}
+
+.quote--alt {
+	position: relative;
+	padding-top: px-to-em(20px);
+	@include respond-to('>=desktop'){
+		padding-top: 0;
+		padding-left: 100 / 12 *2 *1%;
+	}
+
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 2px;
+		width: 11.881188118811881%; /* 120px / 1010px*/
+		background-color: color('brand');
+
+		@include respond-to('>=desktop'){
+			top: px-to-em(24px);
+		}
+	}
+}
+
+.quotes {
+	margin: $base-spacing-unit auto;
+}
+
+.quote--std p {
+	@include respond-to('<tablet'){
+		@include font-size(24px, 30px);
+	}
+}

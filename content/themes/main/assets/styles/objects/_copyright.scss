@@ -1,0 +1,14 @@
+.copyright {
+	@extend %small;
+	display: block;
+	text-transform: uppercase;
+	color: color('text-alt');
+	text-align: center;
+	line-height: px-to-em(30px, $small-font-size);
+
+	@include respond-to('>=tablet'){
+		line-height: px-to-em(60px, $small-font-size);
+		text-align: left;
+		white-space: nowrap;
+	}
+}

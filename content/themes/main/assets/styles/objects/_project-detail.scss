@@ -1,0 +1,72 @@
+.circle-link {
+	
+	position: fixed;
+	width: 40px;
+	height: 40px; 
+	display: block;
+	z-index: 2;
+	
+	svg {
+		width: 100%;
+		height: auto; 
+
+		* {
+			fill: none; 
+			stroke-width: 1.2px; 
+		}
+
+		circle {
+			// fill: white; 
+		}
+	}
+}
+
+.circle-link--back {
+
+	@include respond-to('<tablet') {
+		top: 20px; 
+		left: 4.7%;
+	}
+
+	@include respond-to('>=tablet') {
+		top: 0; 
+		left: 20px; 
+	}
+}
+
+.circle-link--live {
+
+	@include respond-to('<tablet') {
+		top: 20px;
+		right: 4.7%; 
+	}
+	
+	@include respond-to('>=tablet') {
+		top: 120px; 
+		left: 20px; 
+	}
+
+	transition: all 0.3s ease-in-out;
+}
+
+.circle-link--live.inactive {
+
+	@include respond-to('<tablet') {
+		top: 20px; 
+		right: 4.7%; 
+	}
+
+	@include respond-to('>=tablet') {
+		transform: translateX(-100px); 
+	}
+}
+
+.live_label {
+	position: absolute;
+	left: 50%; 
+	top: 50%;
+	transform: translate(-50%, -50%);  
+
+	transition: all 0.3s ease-in-out; 
+}
+

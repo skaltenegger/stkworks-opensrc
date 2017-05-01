@@ -1,0 +1,33 @@
+
+$thickness: 6; 
+$offset: 6; 
+$start: 65 + $offset - $thickness*0.5%; 
+$end: 65 + $offset + $thickness*0.5%; 
+
+.underline {
+	background-image: linear-gradient(transparent $start, color('brand') $start, color('brand') $end, transparent $end);
+}
+
+.float-right-on-desk {
+	@include respond-to('>=desktop') {
+		float: right; 
+	}
+} 
+
+.float-right-on-tablet {
+	@include respond-to('>=tablet', '<desktop') {
+		float: right; 
+	}
+} 
+
+.float-right-greater-phone {
+	@include respond-to('>phone') {
+		float: right; 
+	}
+}
+
+.last-footer-item p {
+	@include respond-to('<phone') {
+		display: inline-block;
+	}
+}

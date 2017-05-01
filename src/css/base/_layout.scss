@@ -1,0 +1,93 @@
+.page-wrapper {
+	margin: 0 auto;
+}
+
+
+.centered-module {
+	display: block; 
+	max-width: 90%;
+	margin: 0 auto;
+
+	@include respond-to('>=tablet', '<=desktop') {
+		width: 80%;  
+	}
+	@include respond-to('>desktop'){
+		width: 75%; 
+	}
+}
+
+
+.transition-item {
+	position: absolute;
+	top: 0;
+	left: 0; 
+	right: 0; 
+}
+
+.pg-trans-leave {
+	opacity: 1;
+    z-index: 1; 
+}
+
+$transitionDuration: 0.4s;
+
+.pg-trans-leave.pg-trans-leave-active {
+  opacity: 0;
+  transition: opacity $transitionDuration ease-in;
+}
+
+.pg-trans-enter {
+  opacity: 0;
+  z-index: 999;
+}
+
+.pg-trans-enter.pg-trans-enter-active {
+  opacity: 1;
+  transition: opacity $transitionDuration ease-in 0.5s;
+}
+
+
+.project-info--full {
+	width: 90%;
+
+	@include respond-to('>=tablet', '<=desktop') {
+		width: 80%;  
+	}
+	@include respond-to('>desktop') {
+		width: 75%; 
+	}
+
+	.info {
+		color: color('medium-gray');
+	}
+}
+
+.project-description {
+	@include respond-to('>=tablet', '<=desktop') {
+		width: 80%;  
+	}
+}
+
+
+
+.site-footer {
+	background: white; 
+	.footer-contact {
+		width: 90%;
+		margin: 0 auto;
+		padding: px-to-em($base-spacing-unit * 2) 0;
+
+		@include respond-to('>=tablet') {
+			padding: px-to-em($base-spacing-unit * 2.5) 0;
+		}
+
+		@include respond-to('>desktop'){
+			width: 75%;
+		}
+		
+	}
+}
+
+.site-footer.has-bg {
+	background: color('bg-light');
+}

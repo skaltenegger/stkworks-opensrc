@@ -1,0 +1,45 @@
+///--------------------------------------
+/// #LAYOUT
+///--------------------------------------
+
+/// The basecss layout system uses `box-sizing: border-box;` and
+/// `float: left;` for its grid system. Combine the layout items with
+/// the widths found in `trumps/widths`.
+///
+/// Usage:
+/// <div class="layout">
+/// 	<div class="layout__item 1/2"> 1st Half </div>
+/// 	<div class="layout__item 1/2"> 2nd Half </div>
+/// </div>
+///
+
+/// Begin a layout group.
+.layout-wrapper,
+%layout-wrapper {
+    list-style: none;
+    margin:  0;
+    padding: 0;
+}
+
+     /// 1. Cause columns to stack side-by-side.
+     /// 2. Align columns to the tops of each other.
+     /// 3. Full-width unless told to behave otherwise.
+     /// 4. Required to combine fluid widths and fixed gutters.
+    .layout,
+    %layout {
+        display: inline-block; /// [1]
+        vertical-align: top; /// [2]
+        width: 100%; /// [3]
+
+        @if $global-border-box == false {
+            -webkit-box-sizing: border-box; /// [4]
+               -moz-box-sizing: border-box; /// [4]
+                    box-sizing: border-box; /// [4]
+        }
+
+    }
+
+    .layout--fluid,
+    %layout--fluid {
+        width: auto;
+    }

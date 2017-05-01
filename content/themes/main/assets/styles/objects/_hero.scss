@@ -1,0 +1,290 @@
+.hero {
+	@include respond-to('>=tablet', '<=desktop') {
+		min-height: 100vh; 
+	}
+}
+
+
+.hero .inner {
+	position: relative; 
+	width: 90%; 
+	padding-top: 10vw; 
+
+	@include respond-to('>=tablet', '<=desktop') {
+		width: 100%; 
+		padding-top: 60px;
+	}
+
+	@include respond-to('>desktop') {
+		width: 90%;
+		padding-top: 60px;
+	}
+} 
+
+.hero-image-wrapper {
+
+	position: relative;
+	display: block; 
+
+	@include respond-to('<tablet') {
+		width: 100%;
+		height: auto; 
+	}
+
+	@include respond-to('>=desktop') {
+		width: 60%;
+	}
+	
+	@include respond-to('>=tablet', '<desktop') {
+		float: right;  
+		width: 70%; 
+		margin-right: 65px; 
+		margin-top: 60px; 
+	}
+}
+
+.hero-text-wrapper {
+
+	z-index: 2; 
+
+	@include respond-to('<tablet') {
+		//float: right; 
+	}
+	
+	@include respond-to('>=desktop') {
+		position: absolute;
+		left: 50%;
+		top: 60px;
+		width: 60%;
+	}
+
+	@include respond-to('<desktop') {
+		
+		position: relative; 
+
+		.placeholder {
+			height: auto;
+		}
+
+		.placeholder--square {
+			padding-top: 0
+		}
+	}
+	
+	@include respond-to('>=tablet', '<desktop') {
+	    width: 80%; 
+	    margin-right: 40px; 
+	}
+
+}
+
+
+.hero-image {
+	position: absolute;
+	bottom: 0; 
+	left: 0; 
+	height: auto; 
+	max-width: 100%;
+}
+
+
+.hero-text {
+
+	@include respond-to('<tablet') {
+		position: relative; 
+		transform: translate(0, 0);
+		margin-bottom: 30px; 		
+	}
+
+	@include respond-to('>=tablet', '<desktop') {
+		position: relative; 
+		width: 480px; 
+		transform: translate(80px, 0%);	
+	}
+	
+	@include respond-to('>=desktop') {
+		position: absolute; 
+		left: 0;
+		top: 48%;
+		transform: translate(0, -50%);
+	}
+
+	@include respond-to('>=desktop', '<=1280') {
+		 width: 470px; 
+		 transform: translate(-5%, -50%);
+	}
+
+	@include respond-to('>1280', '<=monitor') {
+		width: 560px; 
+	}
+
+	@include respond-to('>monitor') {
+		width: 690px; 
+	}
+}
+
+
+.hero-text-line {
+	display: inline-block !important; 
+}
+
+ 
+.multiply {
+	mix-blend-mode: multiply;
+}
+
+.placeholder {
+	height: 0;
+	display: block; 
+	position: relative;
+}
+
+.placeholder--square {
+	padding-top: 100%;
+}
+
+.placeholder--gray {
+	@include color('bg-light', 'background');
+}
+
+
+$thickness: 12; 
+$offset: 4; 
+$start: 50 + $offset - $thickness*0.5%; 
+$end: 50 + $offset + $thickness*0.5%; 
+
+strike { 
+  text-decoration: none;
+  background-image: linear-gradient(transparent $start, color('brand') $start, color('brand') $end, transparent $end);
+}
+
+
+$noticeHeight: 160px; 
+
+.scroll-notice { 
+	position: absolute;
+	bottom: 0px;
+	left: 60%;
+	width: 2px; 
+	height: $noticeHeight;
+	overflow: hidden;
+	transform: translate(-50%, 0); 
+	z-index: 3; 
+
+	@include respond-to('>=tablet', '<desktop') {
+		position: fixed;
+		left: 80px; 
+	}
+
+	@include respond-to('<tablet') {
+		display: none; 
+	}
+
+
+	transition: opacity 0.3s ease; 
+
+	.fill {
+		position: relative;
+		height: 160px;
+		width: 100%;
+		background: color('brand'); 
+
+		transform-origin: center top; 
+		transform: scaleY(0); 
+		
+		animation-fill-mode: forwards;
+		animation-timing-function: ease; 
+		animation-iteration-count: infinite;
+		animation-duration: 2s;
+	}
+}
+
+.scroll-notice.inactive {
+	opacity: 0; 
+}
+
+
+@keyframes scrollDown {
+
+	0% {
+		transform: scaleY(0) translateY(0);
+	}
+	60% {
+		transform: scaleY(1) translateY($noticeHeight); 
+	}
+	100% {
+		transform: scaleY(1) translateY($noticeHeight);
+	}
+
+}
+
+$crossWidth: 50px; 
+$crossThickness: 1px; 
+
+.cross {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	display: block;
+	width: $crossWidth;
+	height: $crossThickness; 
+	background: color('brand'); 
+	opacity: 0; 
+
+	// &:after {
+	// 	position: absolute;
+	// 	width: $crossWidth;
+	// 	height: $crossThickness;
+	// 	left: 0;
+	// 	top: 0;
+	// 	transform: rotate(90deg); 
+	// 	background: color('brand'); 
+	// 	content: ''; 
+	// }
+}
+
+.loader-line {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	background: color('brand');
+	width: 2px;
+}
+
+
+
+// .hero-canvas {
+// 	position: absolute;
+// 	right: 0;
+// 	bottom: 0;
+// 	height: 100%; 
+// 	width: 107.47%;
+// 	transform: translate(-7%, 0);
+// }
+
+// @keyframes glitchAnim {
+//   $steps: 80;
+//   @for $i from 0 through $steps{
+//     #{percentage($i*(1/$steps))} {
+
+//      $x: random(100);
+//      $y: random(100);
+
+//      $w: 9999;
+//      $h: random(40)+10;
+//      $t: -15+random(1)-2; 
+     
+//      clip-path: polygon(0% $y+%, $x+$w+% $y+%, $x+$w+% $y+$h+%, 0% $y+$h+%);
+//      transform: translate($t+%, 2px) scale(1.05);  
+//      // filter:  saturate(random(100)/5);
+//     }
+//   }
+// }
+
+
+
+
+
+
+
